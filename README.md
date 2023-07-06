@@ -22,4 +22,4 @@
 - Save images to local device
 
 ## Walkthough
-<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" />
+<img src="[https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://github.com/djc-swe/Eulerity/blob/main/SampleWalkthrough.gif)https://github.com/djc-swe/Eulerity/blob/main/SampleWalkthrough.gif" width="150"/>
