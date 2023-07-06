@@ -1,6 +1,6 @@
 # Eulerity
 
-> Hi there, I'm Daniel and I am an aspiring programmer. 
+> Hi there I'm Daniel, an aspiring programmer. 
 > The mobile app below takes images from a json notation,
 > and displays the results inside custom dynamic views. 
 > Although Swift has plenty of helpful libraries to ease this process,
@@ -22,4 +22,4 @@
 - Save images to local device
 
 ## Walkthough
-<img src="[https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://github.com/djc-swe/Eulerity/blob/main/SampleWalkthrough.gif)https://github.com/djc-swe/Eulerity/blob/main/SampleWalkthrough.gif" width="150"/>
+<img src="https://github.com/djc-swe/Eulerity/blob/main/SampleWalkthrough.gif" width="150"/>
