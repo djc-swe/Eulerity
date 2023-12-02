@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Eulerity
 //
-//  Created by DJC on 6/28/23.
+//  Created by Daniel Condly on 6/28/23.
 //
 
 import UIKit

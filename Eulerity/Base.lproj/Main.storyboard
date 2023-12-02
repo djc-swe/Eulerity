@@ -1,24 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BHf-If-o3N">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="R6K-TM-CZQ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                <viewController id="BHf-If-o3N" customClass="ViewController" customModule="Eulerity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ki2-pU-Qj4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="foq-c5-PWd" userLabel="Content Stack View">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xU-cP-aTA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="94r-p2-MhC" userLabel="Image Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-DB-Gcl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="lgg-kX-9Ba"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="94r-p2-MhC" firstAttribute="width" secondItem="2xU-cP-aTA" secondAttribute="width" id="67x-Jj-BY2"/>
+                                            <constraint firstItem="94r-p2-MhC" firstAttribute="leading" secondItem="2xU-cP-aTA" secondAttribute="leading" id="TkS-MC-qRm"/>
+                                            <constraint firstAttribute="bottom" secondItem="94r-p2-MhC" secondAttribute="bottom" constant="20" symbolic="YES" id="pKL-Rr-esa"/>
+                                            <constraint firstItem="94r-p2-MhC" firstAttribute="top" secondItem="2xU-cP-aTA" secondAttribute="top" id="q5N-fo-XyW"/>
+                                            <constraint firstAttribute="trailing" secondItem="94r-p2-MhC" secondAttribute="trailing" id="wJu-bd-2jI"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BwH-9O-Ra6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="foq-c5-PWd" secondAttribute="bottom" id="AEf-zG-w6Y"/>
+                            <constraint firstItem="foq-c5-PWd" firstAttribute="trailing" secondItem="BwH-9O-Ra6" secondAttribute="trailing" id="uNI-QQ-5dw"/>
+                            <constraint firstItem="foq-c5-PWd" firstAttribute="top" secondItem="BwH-9O-Ra6" secondAttribute="top" id="xQ1-FQ-rd1"/>
+                            <constraint firstItem="foq-c5-PWd" firstAttribute="leading" secondItem="BwH-9O-Ra6" secondAttribute="leading" id="z34-TZ-LNv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageStackView" destination="94r-p2-MhC" id="8lr-7R-gv3"/>
+                        <outlet property="scrollView" destination="2xU-cP-aTA" id="nkw-lD-VPZ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USk-nq-ekm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-246.56488549618319" y="-222.53521126760563"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="1030" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
