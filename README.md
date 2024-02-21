@@ -1,12 +1,5 @@
 # Eulerity
 
-> Hi there I'm Daniel, I'm a software engineer with a passion for creating mobile apps. 
-> The application below takes images from a json notation,
-> and displays the results inside custom dynamic views. 
-> Although Swift has plenty of helpful libraries to ease this process,
-> part of the task was to hard code the creation and displaying of these views. 
-> I hope you enjoy the walkthough, as much as I enjoyed developing it. 
-
 ## Features
 
 - Displays a list of images by dynamically creating views
