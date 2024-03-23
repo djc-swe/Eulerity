@@ -1,0 +1,324 @@
+func getPets() {
+        guard let petURL = URL(string: petsURL) else {
+            return
+        }
+
+        let request = URLRequest(url: petURL)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+
+            if let error = error {
+                print(error)
+                return
+            }
+
+            // Parse JSON data
+            if let data = data {
+                self.pets = self.parseJsonData(data: data)
+
+//                // Update table view's data
+//                OperationQueue.main.addOperation({
+//                    self.updateSnapshot()
+//                })
+            }
+        })
+
+        task.resume()
+    }
+
+    func parseJsonData(data: Data) -> [Pet] {
+
+        var pets = [Pet]()
+
+        do {
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+
+            // Parse JSON data
+            let jsonPets = jsonResult as [AnyObject]
+            for jsonPets in jsonPets {
+                var pet = Pet()
+                pet.title = jsonPets["title"] as! String
+
+            }
+
+        } catch {
+            print(error)
+        }
+        return pets
+    }
+    
+    
+//    func setImageView() {
+//        imageView.image = UIImage(named: "one")
+//        imageView.title = "Hello"
+//        imageView.descrip = "This is so fun!"
+//        imageView.url = "Http://www.google.com/"
+//        imageView.created = "Nov 12, 2023"
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class ViewController: UIViewController {
+    
+    var pets = [Pet]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let urlString = "https://eulerity-hackathon.appspot.com/pets"
+
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
+                parse(json: data)
+            }
+        }
+    }
+    
+    func parse(json: Data) {
+        let decoder = JSONDecoder()
+        
+        if let jsonPets = try? decoder.decode(Pets.self, from: json) {
+            pets = jsonPets.results
+            print(pets)
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//  ViewController.swift
+//  Eulerity
+//
+//  Created by Daniel Condly on 6/28/23.
+//
+
+import UIKit
+import SwiftyJSON
+import Alamofire
+
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var imageOutlet: UIImageView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var createdOutlet: UILabel!
+    @IBOutlet weak var descriptionOutlet: UILabel!
+    
+    
+    @IBOutlet weak var imageView: CaptionableImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getJSON()
+    }
+    
+    func getJSON() {
+        AF.request("https://eulerity-hackathon.appspot.com/pets").responseJSON { response in
+            switch response.result {
+                
+            case .success(let value):
+                let json = JSON(value)
+//                self.generateViews(json: json)
+                self.generateImageViews(json: json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func generateViews(json: JSON) {
+        let imageURL = URL(string: json[0]["url"].stringValue)
+        let data = try? Data(contentsOf: imageURL!)
+        self.imageOutlet.image = UIImage(data: data!)
+        
+        self.titleOutlet.text = json[0]["title"].stringValue
+        self.createdOutlet.text = json[0]["created"].stringValue
+        self.descriptionOutlet.text = json[0]["description"].stringValue
+    }
+    
+    func generateImageViews(json: JSON) {
+        self.imageView.title = json[0]["title"].stringValue
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        imageView = CaptionableImageView(frame: CGRectMake(0, 20, view.bounds.width, view.bounds.height))
+//        view.addSubview(imageView)
+//        getJSON()
+        
+        
+        imageStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        imageStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        imageStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        imageStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        imageStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        
+        
+        
+        imageStackView.spacing = 2
+        imageStackView.distribution = .fillProportionally
+        imageStackView.axis = .vertical
+        view.addSubview(imageStackView)
+        // constraints
+        imageStackView.translatesAutoresizingMaskIntoConstraints = false
+        imageStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
+        imageStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20).isActive = true
+        imageStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        imageStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+        
+        for i in 0 ... 9 { // create 10 UIView
+                let view = UIView()
+                view.backgroundColor = colors[i]
+                
+                // insert to stackView or etc for showing
+                imageStackView.addArrangedSubview(view)
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   private func loadImage(json: JSON) {
+        for i in 0...json.count-1 {
+            
+            let newImage = CaptionableImageView()
+            let imageURL = URL(string: json[i]["url"].stringValue)
+                        
+            newImage.imageOutlet.sd_setShowActivityIndicatorView(true)
+            newImage.image.sd_setIndicatorStyle(.gray)
+            newImage.image.sd_setImage(with: imageURL)
+            
+            
+            let data = try? Data(contentsOf: imageURL!)
+            newImage.image = UIImage(data: data!)
+            newImage.title = json[i]["title"].stringValue
+            newImage.created = json[i]["created"].stringValue
+            newImage.descr = json[i]["description"].stringValue
+            //self.captionalImageViews.append(newImage)
+            self.imageStackView.addArrangedSubview(newImage)
+        }
+        
+    }
+
+
+
+
+
+
+
+
