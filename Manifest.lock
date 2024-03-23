@@ -1,0 +1,45 @@
+PODS:
+  - Alamofire (5.9.0)
+  - Kingfisher (7.11.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - PixelSDK (11.3.2):
+    - PixelSDK-GPUImage3 (~> 3.0)
+  - PixelSDK-GPUImage3 (3.1.3)
+  - SDWebImage (5.19.0):
+    - SDWebImage/Core (= 5.19.0)
+  - SDWebImage/Core (5.19.0)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - Moya (~> 14.0)
+  - PixelSDK
+  - SDWebImage
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - Moya
+    - PixelSDK
+    - PixelSDK-GPUImage3
+    - SDWebImage
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  PixelSDK: 420b25af577c378acf2d96fb139cf5e7d409d576
+  PixelSDK-GPUImage3: 56b8688866b9d866e995c889e1072357b1610de0
+  SDWebImage: 981fd7e860af070920f249fd092420006014c3eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: fce9e0bb6d4cc06216f63aa2edb4eeee9c701cab
+
+COCOAPODS: 1.15.2
